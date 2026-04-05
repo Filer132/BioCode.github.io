@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCode: Будущее Генной Инженерии</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #10b981;
+            --dark: #0f172a;
+            --accent: #f59e0b;
+            --text-main: #334155;
+            --bg-glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; background: #f1f5f9; color: var(--text-main); 
+            overflow-x: hidden;
+        }
+
+        /* Навигация */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 70px;
+            background: var(--bg-glass); backdrop-filter: blur(12px);
+            display: flex; justify-content: space-around; align-items: center;
+            z-index: 1000; box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+        }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
+
+        /* Герой-секция */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(37, 99, 235, 0.7)), 
+                        url('https://images.unsplash.com/photo-1579154235602-3c35b440d6e6?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; color: white; text-align: center; padding: 20px;
+        }
+        .hero h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 8vw, 5rem); margin: 0; }
+        .hero p { font-size: 1.3rem; max-width: 700px; margin: 20px 0; opacity: 0.9; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+
+        /* Секция "Простыми словами" */
+        .simple-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feature-box {
+            background: white; padding: 30px; border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.4s;
+        }
+        .feature-box:hover { transform: translateY(-10px); }
+        .feature-box h3 { color: var(--primary); font-family: 'Montserrat'; }
+
+        /* Интерактивный таймлайн */
+        .timeline { border-left: 4px solid var(--primary); padding: 20px 40px; margin: 40px 0; }
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -49px; top: 5px;
+            width: 15px; height: 15px; background: var(--secondary); border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        /* Блок Мифы vs Реальность */
+        .myth-card {
+            background: #fff; border-radius: 15px; padding: 25px;
+            border-left: 6px solid var(--accent); margin-bottom: 20px;
+            cursor: pointer; transition: 0.3s;
+        }
+        .myth-card:hover { background: #fffcf0; }
+        .reality-text { display: none; color: var(--secondary); font-weight: 600; margin-top: 10px; }
+
+        /* Тест */
+        .quiz-card {
+            background: var(--dark); color: white; border-radius: 30px;
+            padding: 50px; text-align: center; margin-top: 50px;
+        }
+        .btn {
+            background: var(--primary); color: white; padding: 15px 35px;
+            border: none; border-radius: 50px; cursor: pointer;
+            font-weight: 700; margin: 10px; transition: 0.3s;
+        }
+        .btn:hover { background: var(--secondary); transform: scale(1.05); }
+        #quiz-result { 
+            display: none; margin-top: 30px; padding: 20px; 
+            border-radius: 15px; background: rgba(255,255,255,0.1); 
+        }
+/* Футер */
+        footer {
+            background: var(--dark); color: white; padding: 60px 20px;
+            text-align: center; margin-top: 100px;
+        }
+
+        .law-tag {
+            display: inline-block; background: #e2e8f0; padding: 5px 15px;
+            border-radius: 20px; margin: 5px; font-size: 0.8rem; color: var(--dark);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#about">СУТЬ</a>
+        <a href="#medicine">МЕДИЦИНА</a>
+        <a href="#ethics">ЭТИКА</a>
+        <a href="#quiz">ТЕСТ</a>
+    </nav>
+
+    <header class="hero">
+        <h1>BioCode 2026</h1>
+        <p>Мы научились редактировать ДНК. Пора узнать, как это изменит твою жизнь.</p>
+        <a href="#about" class="btn">Начать погружение</a>
+    </header>
+
+    <div class="container">
+        
+        <section id="about">
+            <h2 style="font-family: 'Montserrat'; text-align: center; font-size: 2.5rem;">Как это работает?</h2>
+            <div class="simple-grid">
+                <div class="feature-box">
+                    <h3>📖 Жизнь как книга</h3>
+                    <p>Твоя ДНК — это 3 миллиарда букв кода. Генная инженерия — это инструмент "Найти и заменить". Мы находим "опечатку" (болезнь) и заменяем её правильной буквой.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>✂️ Молекулярные ножницы</h3>
+                    <p>Технология <b>CRISPR</b> позволяет ученым разрезать ДНК в любом месте с точностью до микрона. Это дешевле и быстрее, чем всё, что было раньше.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>🧬 Новый конструктор</h3>
+                    <p>Мы можем не только лечить, но и создавать: рис с витаминами, бактерии, поедающие пластик, и лекарства от рака.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 100px;">
+            <h2 style="font-family: 'Montserrat';">Путь технологий</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>1953:</strong> Открыта двойная спираль ДНК. Человек увидел "инструкцию" к жизни.
+                </div>
+                <div class="timeline-item">
+                    <strong>1996:</strong> Овечка Долли. Первое успешное клонирование млекопитающего.
+                </div>
+                <div class="timeline-item">
+                    <strong>2012:</strong> Изобретение CRISPR. Появился "генетический скальпель".
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок Мифы vs Реальность (ИСПРАВЛЕН) -->
+        <section id="ethics" style="margin-top: 100px;">
+            <h2 style="font-family: 'Montserrat';">Мифы о генной инженерии</h2>
+            <p>Нажмите на любой миф, чтобы узнать правду 👇</p>
+            
+            <div class="myth-card">
+                <h3>❌ Миф 1: ГМО вызывает рак</h3>
+                <p>Многие думают, что генетически модифицированные продукты приводят к мутациям и раку.</p>
+                <div class="reality-text">
+                    ✅ Реальность: ГМО-продукты проходят строжайшие проверки безопасности. За 30 лет исследований не обнаружено связи между ГМО и раком.
+                </div>
+            </div>
+
+            <div class="myth-card">
+                <h3>❌ Миф 2: Редактирование генов изменит ДНК детей</h3>
+                <p>Существует страх, что CRISPR повлияет на будущие поколения.</p>
+                <div class="reality-text">
+                    ✅ Реальность: Соматическое редактирование меняет гены только у конкретного человека и не передается потомству. Редактирование половых клеток пока запрещено.
+                </div>
+            </div>
+
+            <div class="myth-card">
+                <h3>❌ Миф 3: Ученые создадут "супер-людей"</h3>
+<p>Многие боятся, что генная инженерия приведет к появлению дизайнерских детей.</p>
+                <div class="reality-text">
+                    ✅ Реальность: Технологии пока слишком сложны и дороги для "улучшения" людей. Весь фокус — на лечении тяжелых болезней.
+                </div>
+            </div>
+        </section>
+
+        <!-- Тест (quiz) -->
+        <section id="quiz" class="quiz-card">
+            <h2 style="font-family: 'Montserrat';">🧪 Проверь себя</h2>
+            <p>Какой орган был первым клонирован?</p>
+            <div>
+                <button class="btn" onclick="checkAnswer('heart')">Сердце</button>
+                <button class="btn" onclick="checkAnswer('liver')">Печень</button>
+                <button class="btn" onclick="checkAnswer('frog')">Лягушка</button>
+            </div>
+            <div id="quiz-result"></div>
+        </section>
+    </div>
+
+    <footer>
+        <h3>BioCode — этика будущего</h3>
+        <p>⚖️ Генная инженерия под строгим контролем</p>
+        <div>
+            <span class="law-tag">Биоэтика</span>
+            <span class="law-tag">Законы 2026</span>
+            <span class="law-tag">CRISPR</span>
+            <span class="law-tag">Конфиденциальность ДНК</span>
+        </div>
+        <p style="margin-top: 40px; opacity: 0.6;">© 2026 BioCode. Все права защищены.</p>
+    </footer>
+
+    <!-- ИСПРАВЛЕННЫЙ СКРИПТ -->
+    <script>
+        // Ждём, пока загрузится вся страница
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // НАСТРОЙКА МИФОВ (работает на всех карточках)
+            const mythCards = document.querySelectorAll('.myth-card');
+            
+            mythCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const reality = this.querySelector('.reality-text');
+                    
+                    if (reality) {
+                        if (reality.style.display === 'none' || reality.style.display === '') {
+                            reality.style.display = 'block';
+                        } else {
+                            reality.style.display = 'none';
+                        }
+                    }
+                });
+            });
+
+            // НАСТРОЙКА ТЕСТА
+            window.checkAnswer = function(answer) {
+                const resultDiv = document.getElementById('quiz-result');
+                resultDiv.style.display = 'block';
+                
+                if (answer === 'frog') {
+                    resultDiv.innerHTML = '✅ Правильно! Первым клонированным позвоночным был головастик в 1952 году. Лягушки стали основой для экспериментов.';
+                    resultDiv.style.background = 'rgba(16, 185, 129, 0.2)';
+                } else {
+                    resultDiv.innerHTML = '❌ Не совсем. Первым успешным опытом было клонирование лягушки (головастика) в 1952 году.';
+                    resultDiv.style.background = 'rgba(239, 68, 68, 0.2)';
+                }
+            };
+        });
+    </script>
+</body>
+</html>
